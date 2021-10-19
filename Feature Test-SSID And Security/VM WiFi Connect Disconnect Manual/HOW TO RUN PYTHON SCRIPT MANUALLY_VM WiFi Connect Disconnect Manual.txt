@@ -1,0 +1,51 @@
+----------HOW TO RUN PYTHON SCRIPT MANUALLY----------
+#First you need to modify wifi profile
+On Server_A, run pyton script following below steps and command
+1.Open CMD and type <d:> to change drives
+2.Type <cd "Dropbox\WiFi Test Automation\VM Modify WiFi Profile"> to change directory
+3.Type <python "VM Modify WiFi Profile Manual.py" argument1 argument2 argument3>, script will run  
+
+Argument option
+--------------------------------------------------
+argument1(%SECURITY%) - none/WPA2/WPA3
+
+argument2(%SSID%) - Your WiFi SSID
+Does not support space character so far but support @#!_- (case-sensitive)
+
+argument3(%PASSWORD%) - Your WiFi password
+
+Example
+--------------------------------------------------
+python "VM Modify WiFi Profile.py" none ssid password
+python "VM Modify WiFi Profile Manual.py" WPA2 ssid111 23456789
+
+#Run wifi connect/disconnect script
+On Server_A, run pyton script following below steps and command
+1.Open CMD and type <d:> to change drives
+2.Type <cd "Dropbox\WiFi Test Automation\VM WiFi Connect Disconnect Manual"> to change directory.
+3.Type <python "Server main.py" argument1 argument2 argument3 argument4 argument5 argument6>, script will run 
+
+Argument option
+--------------------------------------------------
+argument1(%ACTION%) - Connect/Disconnect
+
+argument2(%METHOD%) - Continuity/Discontinuity
+
+argument3(%VMNUMBER%) - 
+Continuity format example: 1-30
+Discontinuity format example: 1,3,23,34,70,89,90
+
+argument4(%SECURITY%) - none/WPA2/WPA3
+
+argument5(%SSID%) - Your WiFi SSID
+Does not support space character so far but support @#!_- (case-sensitive)
+
+argument6(%PASSWORD%) - Your WiFi password
+
+Example
+--------------------------------------------------
+Connect:
+python "Server main.py" Connect Continuity 1-10 WPA2 TESTSSID 12345678
+ 
+Disconnect:
+python "Server main.py" Disconnect Continuity 1-10
